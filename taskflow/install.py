@@ -7,7 +7,7 @@ import os
 from .paths import is_link
 
 ROOT = Path(__file__).resolve().parents[1]
-EXCLUDED = {'__pycache__', '.git', '.taskflow', '.pytest_cache'}
+EXCLUDED = {'__pycache__', '.git', '.taskflow', '.pytest_cache', 'node_modules', 'dist', '.pnpm-store', '.ua', '.understand-anything'}
 RUNTIME_DIRS = ('taskflow', 'skills', 'upstream', 'config', 'docs', 'tests', 'scripts')
 RUNTIME_FILES = ('kit.py', 'README.ko.md', 'LICENSE', '.gitattributes', 'bundle-lock.json')
 
@@ -39,8 +39,9 @@ def install(project, source=ROOT, dry_run=False):
     if root == source or root.is_relative_to(source):
         raise ValueError('Install into the actual task project, outside the source kit')
     skills = sorted(p for p in (source / 'skills').iterdir() if p.is_dir())
-    if len(skills) != 5 or not all((p / 'SKILL.md').is_file() for p in skills):
-        raise ValueError('The source pack must contain its five complete adapter skills')
+    required = {'taskflow-workflow', 'taskflow-brief', 'taskflow-parallel', 'taskflow-inbox', 'taskflow-verify', 'understand'}
+    if not required.issubset({p.name for p in skills}) or not all((p / 'SKILL.md').is_file() for p in skills):
+        raise ValueError('The source pack is missing complete required skills')
     manifest = source / 'bundle-lock.json'
     if manifest.exists():
         verify_bundle(source)

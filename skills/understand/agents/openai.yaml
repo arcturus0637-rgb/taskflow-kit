@@ -1,0 +1,4 @@
+interface:
+  display_name: "Understand Anything 결과물 이해"
+  short_description: "완성된 결과물의 구조와 흐름을 한국어 설명과 원본 지식 그래프로 이해합니다"
+  default_prompt: "$understand로 완성된 결과물의 구조·동작·설계 이유·검증과 한계를 내가 이해하도록 설명해줘."

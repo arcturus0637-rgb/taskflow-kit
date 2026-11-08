@@ -3,3 +3,8 @@ __pycache__/
 .taskflow/
 .pytest_cache/
 .venv/
+node_modules/
+dist/
+.pnpm-store/
+.ua/
+.understand-anything/

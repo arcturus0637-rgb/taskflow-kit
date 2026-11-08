@@ -13,7 +13,8 @@ Use the actual assignment as authority. Choose the medium, stack and methods fro
 4. Keep a short task board and requirement-to-check mapping. Assign concrete outcomes, write scopes, dependency/contract versions and completion checks. Reconcile worker completion and dispatch newly ready work as results arrive, rather than waiting for every worker in a batch.
 5. **On every new user message while work continues**, run `taskflow-inbox/SKILL.md` at the next observable boundary. Answer brief status questions, preserve the objective and route actual changes. Never silently drop a request or call an unacknowledged message delivered.
 6. Diagnose reproducible failures before speculative changes. Read only the relevant upstream source through `docs/SOURCES.ko.md` in the runtime kit. Use targeted review or simplification when they improve the actual deliverable, without importing whole upstream processes or extra approval gates.
-7. Read `taskflow-verify/SKILL.md` before completion. Reserve enough remaining time for integration, meaningful checks and the specified submission. Report actual results, limitations and the next required user action if any.
+7. Read `taskflow-verify/SKILL.md` before completion. Reserve enough remaining time for integration, meaningful checks and the specified submission.
+8. After the implementation and checks, read the sibling `understand/SKILL.md`. Apply Understand Anything to the actual final result and deliver a source-grounded Korean explanation so the user can understand it. Keep graph-runtime blockers explicit and final source checks current. Then report actual results, limitations and the next required user action if any.
 
 ## Runtime
 

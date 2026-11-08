@@ -6,7 +6,8 @@ from pathlib import Path
 import shutil
 import zipfile
 
-IGNORED = {'__pycache__', '.git', '.taskflow', '.pytest_cache'}
+IGNORED = {'__pycache__', '.git', '.taskflow', '.pytest_cache', 'node_modules', 'dist', '.pnpm-store', '.ua', '.understand-anything'}
+VERSION = '1.1.0'
 DIRS = {'taskflow', 'skills', 'upstream', 'config', 'docs', 'tests', 'scripts'}
 FILES = {'kit.py', 'README.ko.md', 'LICENSE', '.gitattributes', 'bundle-lock.json'}
 
@@ -19,7 +20,7 @@ def files(root):
 
 
 def manifest(root):
-    content = {'version': '1.0.0', 'algorithm': 'sha256',
+    content = {'version': VERSION, 'algorithm': 'sha256',
                'files': {p.relative_to(root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
                          for p in files(root) if p.name != 'bundle-lock.json'}}
     (root / 'bundle-lock.json').write_text(json.dumps(content, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
@@ -40,14 +41,14 @@ def package(source, destination):
         target = folder / p.relative_to(source)
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(p, target)
-    archive = destination / 'taskflow-kit-1.0.0.zip'
+    archive = destination / ('taskflow-kit-' + VERSION + '.zip')
     if archive.exists():
         raise ValueError('Delivery archive already exists')
     with zipfile.ZipFile(archive, 'x', compression=zipfile.ZIP_DEFLATED) as z:
         for p in files(folder):
             z.write(p, 'taskflow-kit/' + p.relative_to(folder).as_posix())
     digest = hashlib.sha256(archive.read_bytes()).hexdigest()
-    (destination / 'taskflow-kit-1.0.0.sha256.txt').write_text(digest + '  ' + archive.name + '\n', encoding='ascii')
+    (destination / ('taskflow-kit-' + VERSION + '.sha256.txt')).write_text(digest + '  ' + archive.name + '\n', encoding='ascii')
     print(json.dumps({'folder': str(folder), 'archive': str(archive),
                       'sha256': digest, 'verified_file_count': len(content['files'])}, ensure_ascii=False))
 

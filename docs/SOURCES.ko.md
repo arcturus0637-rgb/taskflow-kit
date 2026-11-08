@@ -1,8 +1,8 @@
 # TaskFlow가 재사용한 공개 원본
 
-TaskFlow는 작업 보드·설치·요청 전달·검증 기록을 새로 연결하고, 아래 공개 문서를 조건에 맞게 참고한다. 원본을 전체 실행 프레임워크로 설치하지 않는다. 활성 어댑터는 `taskflow-workflow`, `taskflow-brief`, `taskflow-parallel`, `taskflow-inbox`, `taskflow-verify` 다섯 개이며, `upstream/`의 원본은 필요한 부분을 읽는 참고 자료다.
+TaskFlow는 작업 보드·설치·요청 전달·검증 기록을 새로 연결하고, 아래 공개 문서를 조건에 맞게 참고한다. 원본을 전체 실행 프레임워크로 설치하지 않는다. 활성 어댑터는 `taskflow-workflow`, `taskflow-brief`, `taskflow-parallel`, `taskflow-inbox`, `taskflow-verify` 다섯 개와 `understand` 연결 스킬 하나이며, `upstream/`의 원본은 필요한 부분을 읽는 참고 자료다.
 
-세 저장소에서 26개 파일, 총 85,550바이트를 선별했다. 이 수치는 원본 파일과 해당 라이선스만 포함한다. 최신판이라는 주장은 하지 않는다. 고정 커밋·원본 경로·로컬 경로·파일별 SHA-256·Git blob SHA-1·라이선스는 [sources.lock.json](../config/sources.lock.json)에 기록했다.
+기본 세 저장소에서 26개 파일, 총 85,550바이트를 선별했다. v1.1에는 Understand Anything 고정 소스 385개를 더해 네 저장소의 원본 파일 총 411개를 포함한다. 이 수치는 원본 파일과 해당 라이선스만 포함한다. 최신판이라는 주장은 하지 않는다. 고정 커밋·원본 경로·로컬 경로·파일별 SHA-256·Git blob SHA-1·라이선스는 [sources.lock.json](../config/sources.lock.json)에 기록했다.
 
 ## 고정 출처와 라이선스
 
@@ -51,3 +51,15 @@ Vercel React 최적화 규칙, Supabase, 최적화 솔버·조합최적화 자�
 연결된 GitHub 도구로 위 고정 커밋의 공개 Git 트리·디렉터리·라이선스를 확인했다. 기존 cofa 참고 사본의 각 파일을 GitHub Git blob SHA-1과 대조했고, 일치하는 12개 파일만 그대로 재사용했다. Windows CRLF 차이가 있던 14개 파일은 같은 커밋에서 base64 원문으로 다시 읽었다. 저장 전 모든 파일의 Git blob SHA-1과 크기를 원격 메타데이터와 대조하고, 저장된 바이트의 SHA-256을 매니페스트에 기록했다. 원본 파일의 내용·줄바꿈·파일명을 변경하지 않았다.
 
 이 검사는 출처·선별 경로·바이트 일치의 확인이다. 원본 조언의 모든 주장이 모든 과제에 맞는지, 원본 예제의 실행 성공, 최적해 보장, 외부 제출 성공을 검증했다는 뜻은 아니다. 실제 과제의 검사 기록과 완료 판단은 TaskFlow의 검증 흐름에서 별도로 남긴다.
+
+
+## v1.1 Understand Anything
+
+- 원본: https://github.com/Egonex-AI/Understand-Anything
+- 고정 커밋: `a6ea4024767df85ce4f99140d4f12ecfc5a81eb6`
+- 라이선스: 원본 MIT와 내부 구성요소의 라이선스·BUILD 문서 보존. `LICENSE`의 Yuxiang Lin 및 Infinite Universe, Inc. 저작권을 유지한다.
+- 포함: `understand-anything-plugin/` 전체 파일과 루트 LICENSE·README·워크스페이스·잠금 파일·타입스크립트 설정·npm 설정, 총 385개. 모든 선택 파일의 Git blob SHA-1·크기를 공식 고정 Git 트리와 대조하고 SHA-256을 기록했다. 원문 바이트를 변경하지 않았다.
+- 실제 발견 스킬은 TaskFlow 연결 지침 `skills/understand/SKILL.md`다. 원본의 9개 스킬 디렉터리를 모두 자동 활성화하지 않으며 연결 지침에서 실제 원본 위치를 읽는다.
+- 목적은 **최종 구현과 검증 이후의 결과물 이해**다. 과제 요구사항을 처음 요약하는 `taskflow-brief`와 구분한다.
+- Node.js ≥22, pnpm ≥10, 코어 빌드와 실제 에이전트 실행이 필요하다. 소스가 있다는 사실을 그래프 생성·대시보드 실행 성공으로 표시하지 않는다. 패키지 설치·훅·다른 모델·외부 업로드를 자동 실행하지 않는다.
+- 원본의 작업 사본 자동 리다이렉트는 이 통합에서 끄고 실제 최종 과제 폴더를 유지한다. 그래프용 임시 파일만 분석 작업자의 쓰기 범위로 배정한다.

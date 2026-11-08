@@ -16,3 +16,5 @@ Record implemented, integrated, executed and verified states separately. A task 
 Confirm the final submission workspace contains all integrated work and the required output files. Preserve original inputs. Provide a short explanation grounded in the actual implementation: what was built, why the chosen approach fits, measured results, known limits and reproduction steps. Do not claim optimality, causality, performance gains or submission without corresponding evidence.
 
 If final submission is a separate user/platform action, state precisely what remains. The helper never presses a submit button. Honor actual contest rules for tool use and any post-submission stage; do not import preliminary-round restrictions as facts about a different round.
+
+After implementation checks, use the bundled `understand` adapter to explain the completed result in Korean, with an actual source-grounded walkthrough and optional executed graph. Keep this before any stage that prohibits AI use. Do not let explanation generation silently change tested implementation; refresh affected checks if it does.

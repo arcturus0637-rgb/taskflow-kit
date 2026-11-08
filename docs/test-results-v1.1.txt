@@ -1,0 +1,7 @@
+Command: python -X utf8 -m unittest discover -s tests -q
+Environment: Windows / Python 3.14.3
+
+----------------------------------------------------------------------
+Ran 46 tests in 53.199s
+
+OK
