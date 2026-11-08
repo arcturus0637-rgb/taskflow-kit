@@ -1,0 +1,4 @@
+interface:
+  display_name: "TaskFlow 진행 중 요청"
+  short_description: "진행 중 추가된 요청을 보존하고 담당자의 다음 작업과 실제 전달 상태로 연결합니다"
+  default_prompt: "$taskflow-inbox로 이 개선 요청을 담당 에이전트의 다음 작업으로 연결해줘."

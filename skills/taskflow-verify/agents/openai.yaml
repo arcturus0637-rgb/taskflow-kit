@@ -1,0 +1,4 @@
+interface:
+  display_name: "TaskFlow 통합 검증"
+  short_description: "실제 결과와 요구사항을 대조하고 실행·통합·검증·제출 상태를 구분합니다"
+  default_prompt: "$taskflow-verify로 통합된 결과와 현재 검증 근거를 확인해줘."

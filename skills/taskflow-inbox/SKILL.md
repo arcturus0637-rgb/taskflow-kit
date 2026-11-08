@@ -1,0 +1,18 @@
+---
+name: taskflow-inbox
+description: Use when the user sends a correction, improvement request or additional task while other work or agents are already running, including next-task queuing and uncertain message delivery.
+---
+
+# Route incoming work without losing it
+
+Process new input at the next host message/tool boundary. Classify it as status/question, correction, defect, required addition, optional improvement or cancellation. Answer questions without replacing the objective. Preserve raw request text and a stable request key for work items.
+
+1. Identify affected requirement IDs, output, write scopes, resources and dependencies. Choose a current owner by actual responsibility and scope; do not guess from "backend" or "frontend" alone. Split a multi-owner request into linked tasks while retaining the original request key in their descriptions.
+2. Persist each next task before sending it: `board request --key U1 --text ... --task T2 --title ... --scope ... --accept ... --owner A --after T1`. Use the same key on retry. The board infers an owner only for one unambiguous full-scope match. For an unassigned pending request, resolve responsibility and use `board route --key U1 --owner A`; do not change the original request payload on retry. An existing task ID is not a new implementation request.
+3. **Busy owner:** send a native message containing the stable request/task IDs, exact next-task outcome and "finish your current assignment; claim this only after dependencies are integrated." Keep the active task's scope unchanged. **Idle existing owner:** use the host's actual followup mechanism to start eligible work. **No appropriate owner:** dispatch an available worker or keep an explicit pending task with its blocker.
+4. Record `delivery --status delivered --receipt ...` only after an actual successful native-tool acknowledgement. This means tool-accepted delivery, not worker receipt, execution or completion. On timeout record `unknown`; on explicit failure record `failed`. Reconcile the same key with the worker before retrying; workers deduplicate by key and check board state. The helper does not send messages or guarantee exactly-once remote delivery.
+5. If all workers are occupied, keep the item in the responsible owner's queue. As workers finish, integrate prerequisites and start newly eligible work without asking the user to repeat it. Required corrections outrank discretionary polish; optional ideas do not automatically expand the deadline or displace essentials.
+
+For a changed shared contract, identify **all active consumers**, reserve its write resource, and wait for their read reservations to clear or explicitly stop and reassign affected work. Publish the new contract revision, invalidate affected assumptions/checks and reconcile consumers before resuming. Never silently edit a schema under active consumers.
+
+Tell the user briefly what was queued and for whom, what could start immediately, and anything genuinely blocked or delivery-unknown. On resumption reload `status` and `outbox`; reconcile native target states instead of spawning duplicates. Do not promise a background listener or post-turn execution.

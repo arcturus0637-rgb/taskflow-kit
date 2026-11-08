@@ -1,0 +1,4 @@
+interface:
+  display_name: "TaskFlow 과제 요약"
+  short_description: "원문 근거를 유지하며 필수 요구사항과 선택사항·가정·확인 방법을 정리합니다"
+  default_prompt: "$taskflow-brief로 이 과제의 목표와 요구사항·제출 조건을 요약해줘."

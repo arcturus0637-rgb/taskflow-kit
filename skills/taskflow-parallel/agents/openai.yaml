@@ -1,0 +1,4 @@
+interface:
+  display_name: "TaskFlow 병렬 작업"
+  short_description: "독립 작업과 수정 범위·공통 자원을 나눠 여러 에이전트의 작업을 조율합니다"
+  default_prompt: "$taskflow-parallel로 독립 작업을 나누고 충돌을 관리하며 병렬 진행해줘."
