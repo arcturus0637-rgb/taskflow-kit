@@ -1,4 +1,4 @@
 interface:
   display_name: "TaskFlow 전체 작업 흐름"
-  short_description: "처음 보는 과제의 해석부터 병렬 구현과 검증·제출 준비까지 연결합니다"
-  default_prompt: "$taskflow-workflow을 사용해 이 과제를 파악하고 구현·검증까지 진행해줘."
+  short_description: "과제 해석부터 승인한 병렬 구현·개선 실험과 최종 검증을 연결합니다"
+  default_prompt: "$taskflow-workflow으로 과제를 파악하고 작업 묶음을 먼저 논의한 뒤 구현·개선·검증해줘."

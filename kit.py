@@ -11,7 +11,7 @@ if hasattr(sys.stdout, 'reconfigure'):
 def main(argv=None):
     args = list(sys.argv[1:] if argv is None else argv)
     if not args or args[0] in ('-h', '--help'):
-        print('TaskFlow 1.1: install | board | check | evidence | verify-bundle | understand-status\n'
+        print('TaskFlow 1.2: install | board | check | evidence | verify-bundle | understand-status | agent-plan\n'
               'Run: python kit.py COMMAND --help')
         return 0
     command, rest = args[0], args[1:]
@@ -25,6 +25,9 @@ def main(argv=None):
         if command == 'understand-status':
             from taskflow.understand import main as understand_main
             return understand_main(rest)
+        if command == 'agent-plan':
+            from taskflow.models import main as models_main
+            return models_main(rest)
         if command in ('check', 'evidence'):
             from taskflow.checks import main as check_main
             return check_main([command, *rest])

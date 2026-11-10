@@ -1,0 +1,4 @@
+interface:
+  display_name: "TaskFlow 최소 모델 설계"
+  short_description: "과제의 입출력·평가 기준에서 필요한 모듈과 최소 방법을 설계합니다"
+  default_prompt: "$taskflow-model로 과제의 입력·출력과 최소 모델을 설계하고 구현 범위를 먼저 논의해줘."

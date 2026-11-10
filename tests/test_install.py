@@ -31,8 +31,60 @@ class InstallTests(unittest.TestCase):
         self.assertEqual((self.root / 'answer.py').read_bytes(), b'print(7)\n')
         self.assertTrue((self.root / '.taskflow-kit' / 'kit.py').is_file())
         skills = self.root / '.agents' / 'skills'
-        self.assertEqual(len(list(skills.glob('taskflow-*/SKILL.md'))), 5)
+        self.assertEqual(len(list(skills.glob('taskflow-*/SKILL.md'))), 7)
         self.assertFalse((skills / 'systematic-debugging').exists())
+
+    def test_installs_model_improvement_and_shared_policy_in_both_locations(self):
+        p = self.run_cli('install', '--project', str(self.root))
+        self.assertEqual(p.returncode, 0, p.stdout + p.stderr)
+        runtime = self.root / '.taskflow-kit'
+        discovered = self.root / '.agents' / 'skills'
+        relative_files = (
+            'taskflow-model/SKILL.md',
+            'taskflow-model/agents/openai.yaml',
+            'taskflow-model/references/method-selection.md',
+            'taskflow-improve/SKILL.md',
+            'taskflow-improve/agents/openai.yaml',
+            'taskflow-improve/references/experiment-record.md',
+            'taskflow-workflow/references/decision-policy.md',
+            'taskflow-parallel/references/model-routing.md',
+            'taskflow-parallel/references/model-policy.json',
+        )
+        for name in relative_files:
+            with self.subTest(path=name):
+                expected = (KIT.parent / 'skills' / name).read_bytes()
+                self.assertEqual((discovered / name).read_bytes(), expected)
+                self.assertEqual((runtime / 'skills' / name).read_bytes(), expected)
+        self.assertFalse((self.root / '.taskflow').exists(), 'Installation cannot create consent or accepted records')
+
+    def test_incomplete_v12_source_fails_before_project_writes(self):
+        from taskflow.install import install
+        names = ('taskflow-workflow', 'taskflow-brief', 'taskflow-parallel',
+                 'taskflow-inbox', 'taskflow-verify', 'understand',
+                 'taskflow-model', 'taskflow-improve')
+        for missing in ('taskflow-model', 'taskflow-improve'):
+            with self.subTest(missing=missing):
+                source = Path(self.tmp.name) / missing
+                for name in names:
+                    if name != missing:
+                        skill = source / 'skills' / name
+                        skill.mkdir(parents=True)
+                        (skill / 'SKILL.md').write_text('Existing source', encoding='utf-8')
+                with self.assertRaisesRegex(ValueError, 'missing complete required skills'):
+                    install(self.root, source=source)
+                self.assertEqual(list(self.root.iterdir()), [])
+
+    def test_missing_shared_policy_rejected_before_project_writes(self):
+        from taskflow.install import install
+        source = Path(self.tmp.name) / 'partial'
+        for original in (KIT.parent / 'skills').iterdir():
+            if original.is_dir():
+                skill = source / 'skills' / original.name
+                skill.mkdir(parents=True)
+                (skill / 'SKILL.md').write_bytes((original / 'SKILL.md').read_bytes())
+        with self.assertRaisesRegex(ValueError, 'missing required skill references'):
+            install(self.root, source=source)
+        self.assertEqual(list(self.root.iterdir()), [])
 
     def test_dry_run_creates_nothing(self):
         p = self.run_cli('install', '--project', str(self.root), '--dry-run')

@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "automatic_updates": false,
+  "forbidden_families": ["astra"],
+  "models": [
+    {"label": "Sol 6.1", "native_id": "gpt-6.1-sol"},
+    {"label": "Terra 5.6", "native_id": null},
+    {"label": "Luna 6", "native_id": "gpt-6-luna"},
+    {"label": "Sol 6.0", "native_id": "gpt-6-sol"}
+  ],
+  "tiers": {
+    "basic": {"model_label": "Luna 6", "reasoning_effort": "low"},
+    "standard": {"model_label": "Sol 6.1", "reasoning_effort": "medium"},
+    "critical": {"model_label": "Sol 6.1", "reasoning_effort": "high"}
+  }
+}

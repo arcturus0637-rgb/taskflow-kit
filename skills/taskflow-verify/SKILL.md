@@ -5,9 +5,11 @@ description: Use before reporting a task complete or ready to submit, when combi
 
 # Verify the delivered result
 
-Use the requirement table as the acceptance checklist. Inspect actual artifacts and integration changes; a worker's completion message is not execution evidence. Read the pinned verification source in the runtime kit through `docs/SOURCES.ko.md` when verification planning is needed.
+Read `../taskflow-workflow/references/decision-policy.md`; verification inside an approved batch does not itself grant candidate adoption. Use the requirement table and its actual priority/criteria revision as the acceptance checklist. Ask the user if priorities still conflict rather than choose a convenient score. Inspect actual artifacts and integration changes; a worker's completion message is not execution evidence. Read the pinned verification source in the runtime kit through `docs/SOURCES.ko.md` when verification planning is needed.
 
 Pick meaningful checks for the deliverable: execute actual inputs and outputs for software/algorithms; compare to an independent baseline and valid held-out data for analysis; render and inspect final documents/media where layout or playback matters. Include required edge cases, preservation constraints and relevant failures. Do not create redundant tests merely mirroring implementation text.
+
+Report successful execution, requirement/constraint validity, quality and robustness separately. During improvement, compare complete pipelines with compatible inputs, task criteria and budgets; check combined candidates again. Keep final evaluation out of repeated model selection and post-adoption diagnosis. User approval cannot turn stale/failed evidence into success; use the actual approved integrated version and refresh its checks. After successful adoption use `../taskflow-improve/SKILL.md` to diagnose the new accepted version and propose the next batch within the recorded scope.
 
 Record implemented, integrated, executed and verified states separately. A task can be worker-done while its dependency remains blocked until integration. Use `kit.py check --root PROJECT --task T1 --watch SOURCE ... -- COMMAND ARGS...` to capture a real command, log, return status and watched source fingerprints. Choose watches covering relevant code, contracts, inputs, tests and dependency manifests; watching one file does not validate the whole project. Keep expected generated outputs outside source watches or validate them separately.
 

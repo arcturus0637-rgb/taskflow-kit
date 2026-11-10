@@ -39,9 +39,17 @@ def install(project, source=ROOT, dry_run=False):
     if root == source or root.is_relative_to(source):
         raise ValueError('Install into the actual task project, outside the source kit')
     skills = sorted(p for p in (source / 'skills').iterdir() if p.is_dir())
-    required = {'taskflow-workflow', 'taskflow-brief', 'taskflow-parallel', 'taskflow-inbox', 'taskflow-verify', 'understand'}
+    required = {'taskflow-workflow', 'taskflow-brief', 'taskflow-model', 'taskflow-improve',
+                'taskflow-parallel', 'taskflow-inbox', 'taskflow-verify', 'understand'}
     if not required.issubset({p.name for p in skills}) or not all((p / 'SKILL.md').is_file() for p in skills):
         raise ValueError('The source pack is missing complete required skills')
+    required_references = ('taskflow-workflow/references/decision-policy.md',
+                           'taskflow-model/references/method-selection.md',
+                           'taskflow-improve/references/experiment-record.md',
+                           'taskflow-parallel/references/model-routing.md',
+                           'taskflow-parallel/references/model-policy.json')
+    if not all((source / 'skills' / name).is_file() for name in required_references):
+        raise ValueError('The source pack is missing required skill references')
     manifest = source / 'bundle-lock.json'
     if manifest.exists():
         verify_bundle(source)
@@ -76,7 +84,7 @@ def install(project, source=ROOT, dry_run=False):
     return {'ok': True, 'dry_run': dry_run, 'project': str(root),
             'files_to_write': len(writes), 'identical_files': skipped,
             'skills': [p.name for p in skills], 'agents_md': 'preserved; never edited',
-            'next': 'Use $taskflow-workflow in the task project. Native subagents must be available separately.'}
+            'next': 'Use $taskflow-workflow in the task project; discuss and approve the work batch first. Native subagents must be available separately.'}
 
 
 def verify_bundle(source):

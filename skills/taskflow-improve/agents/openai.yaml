@@ -1,0 +1,4 @@
+interface:
+  display_name: "TaskFlow 개선 실험과 재분석"
+  short_description: "승인한 범위에서 후보를 비교하고 채택을 논의한 뒤 약점·병목을 재분석합니다"
+  default_prompt: "$taskflow-improve로 현재 모델의 약점을 분석해 개선 실험을 제안하고, 채택 전에는 나와 논의해줘."
