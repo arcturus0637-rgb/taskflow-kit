@@ -1,8 +1,8 @@
 # TaskFlow가 재사용한 공개 원본
 
-TaskFlow는 작업 보드·설치·요청 전달·검증 기록을 새로 연결하고, 아래 공개 문서를 조건에 맞게 참고한다. 원본을 전체 실행 프레임워크로 설치하지 않는다. 활성 어댑터는 `taskflow-workflow`, `taskflow-brief`, `taskflow-parallel`, `taskflow-inbox`, `taskflow-verify` 다섯 개와 `understand` 연결 스킬 하나이며, `upstream/`의 원본은 필요한 부분을 읽는 참고 자료다.
+TaskFlow는 작업 보드·설치·요청 전달·검증 기록을 새로 연결하고, 아래 공개 문서를 조건에 맞게 참고한다. 원본을 전체 실행 프레임워크로 설치하지 않는다. 활성 스킬은 TaskFlow 7개와 `understand` 연결 스킬 1개, 총 8개다. `upstream/`의 원본은 조건에 맞을 때만 참고하며 활성화하지 않는다.
 
-기본 세 저장소에서 26개 파일, 총 85,550바이트를 선별했다. v1.1에는 Understand Anything 고정 소스 385개를 더해 네 저장소의 원본 파일 총 411개를 포함한다. 이 수치는 원본 파일과 해당 라이선스만 포함한다. 최신판이라는 주장은 하지 않는다. 고정 커밋·원본 경로·로컬 경로·파일별 SHA-256·Git blob SHA-1·라이선스는 [sources.lock.json](../config/sources.lock.json)에 기록했다.
+기존 네 저장소의 411개 파일은 그대로 보존했다. v1.3.0에서는 두 저장소의 조건부 참고 원본 17개 파일을 추가해 총 6개 저장소, 428개 원본 파일이 있다. 최신판이라는 주장이 아니다. 고정 커밋·원본 경로·로컬 경로·파일별 SHA-256·Git blob SHA-1·라이선스는 [sources.lock.json](../config/sources.lock.json)에 기록했다. 프로젝트 설치본에서는 `.taskflow-kit/config/sources.lock.json`으로 출처를 확인한다.
 
 ## 고정 출처와 라이선스
 
@@ -11,12 +11,14 @@ TaskFlow는 작업 보드·설치·요청 전달·검증 기록을 새로 연결
 | [obra/superpowers](https://github.com/obra/superpowers/tree/2ce8aa15d05bd57213e6f746f953aafb7ded7a8b) | `2ce8aa15d05bd57213e6f746f953aafb7ded7a8b` | systematic-debugging 전체 디렉터리, verification-before-completion | [MIT, Jesse Vincent](../upstream/superpowers/LICENSE) |
 | [mattpocock/skills](https://github.com/mattpocock/skills/tree/a496f5513d4a4cf889bc48e189e579f4b0bdf6aa) | `a496f5513d4a4cf889bc48e189e579f4b0bdf6aa` | code-review, domain-modeling, to-spec, to-tickets의 전체 디렉터리 | [MIT, Matt Pocock](../upstream/matt-pocock/LICENSE) |
 | [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official/tree/f8c5e7a1dcb71b10cb74586224b5401f3de5db28/plugins/code-simplifier) | `f8c5e7a1dcb71b10cb74586224b5401f3de5db28` | code-simplifier 에이전트 원문 | [Apache-2.0](../upstream/code-simplifier/plugins/code-simplifier/LICENSE) |
+| [trailofbits/skills](https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff) | `e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff` | property-based-testing 참고 자료 | [CC-BY-SA-4.0](../upstream/trailofbits-skills/LICENSE), 저작자 표시·동일조건변경허락 고지 유지 |
+| [anthropics/skills](https://github.com/anthropics/skills/tree/2c5958ecac7cee2b583967a2c4981d0f4a75c579) | `2c5958ecac7cee2b583967a2c4981d0f4a75c579` | webapp-testing 참고 자료 | [Apache-2.0](../upstream/anthropic-skills/skills/webapp-testing/LICENSE.txt), [THIRD_PARTY_NOTICES](../upstream/anthropic-skills/THIRD_PARTY_NOTICES.md) 유지 |
 
 원본의 저작권·라이선스 문구를 그대로 보존했다. Anthropic 고정 커밋의 저장소 루트와 code-simplifier 디렉터리에는 별도 `NOTICE` 파일이 없음을 확인했다. 선택한 자료에는 라이선스 파일의 부재로 보류한 항목이 없다. TaskFlow 자체 라이선스가 이 원본들의 라이선스를 대체하지 않는다.
 
 ## 언제 무엇을 읽는가
 
-아래 경로는 배포 묶음 루트를 기준으로 한다. 프로젝트 설치 후에는 앞에 `.taskflow-kit/`를 붙인다. 참고 자료를 `.agents/skills/`로 복사하거나 독립 활성 스킬로 등록하지 않는다.
+아래 경로는 배포 묶음 루트를 기준으로 한다. 프로젝트 설치본에서는 `.taskflow-kit/config/sources.lock.json`의 source ID로 upstream 경로를 찾는다. 참고 자료를 `.agents/skills/`로 복사하거나 독립 활성 스킬로 등록하지 않는다.
 
 | 조건 | 진입 경로 | TaskFlow에서 참고할 목적 |
 |---|---|---|
@@ -27,6 +29,11 @@ TaskFlow는 작업 보드·설치·요청 전달·검증 기록을 새로 연결
 | 중요한 용어나 상태의 뜻이 충돌할 때 | `upstream/matt-pocock/skills/engineering/domain-modeling/SKILL.md` | 용어를 명확히 하고 필요한 결정의 이유를 기록 |
 | 기준 Git 커밋과 요구사항을 비교하는 코드 검토 때 | `upstream/matt-pocock/skills/engineering/code-review/SKILL.md` | 저장소 규칙 준수와 요구사항 충족을 각각 확인 |
 | 변경한 코드를 동작 유지 조건으로 정리할 때 | `upstream/code-simplifier/plugins/code-simplifier/agents/code-simplifier.md` | 최근 변경 범위 안에서 명료성·일관성·복잡도를 점검 |
+| 승인된 COFA 환경에서 작업을 시작할 때 | `skills/taskflow-workflow/references/cofa-startup.md` | 실제 인터페이스·허용 범위·native 기능을 읽기 전용으로 확인하고 불확실성을 분리 |
+| 데이터 변환·수치 계산·예측·제약 결정 결과를 검증할 때 | `skills/taskflow-verify/references/data-and-properties.md` | 입력 계약에 맞는 독립 계산과 유효한 속성·반례를 선택 |
+| 실제 과제에서 로컬 웹 UI가 필요하고 허용된 검사 배치일 때 | `skills/taskflow-verify/references/webapp-checks.md` | 기존 실행 환경에서 실제 사용자 흐름을 조건부로 확인 |
+
+두 새 외부 원본은 각각 `trailofbits-property-testing` 및 `anthropic-webapp-testing` ID로 lock 파일에서 찾는다. 웹 UI 검사는 실제 과제의 필요, contest 규칙의 허용, 이미 실행 가능한 기존 런타임이 모두 확인될 때만 한다. 설치된 라이브러리나 의존성 metadata만으로 허용·실행을 추정하지 않는다.
 
 문서·분석·CLI·알고리즘 등에도 TaskFlow 어댑터의 요구사항 정리와 검증 흐름을 적용할 수 있다. Git diff, React 코드, 도메인 용어집처럼 전제 조건이 필요한 원본은 그 조건이 실제로 맞을 때만 읽는다. 원본을 읽었다는 이유로 작업 범위를 늘리지 않는다.
 
@@ -48,9 +55,9 @@ Vercel React 최적화 규칙, Supabase, 최적화 솔버·조합최적화 자�
 
 ## 원본 확인 방식
 
-연결된 GitHub 도구로 위 고정 커밋의 공개 Git 트리·디렉터리·라이선스를 확인했다. 기존 cofa 참고 사본의 각 파일을 GitHub Git blob SHA-1과 대조했고, 일치하는 12개 파일만 그대로 재사용했다. Windows CRLF 차이가 있던 14개 파일은 같은 커밋에서 base64 원문으로 다시 읽었다. 저장 전 모든 파일의 Git blob SHA-1과 크기를 원격 메타데이터와 대조하고, 저장된 바이트의 SHA-256을 매니페스트에 기록했다. 원본 파일의 내용·줄바꿈·파일명을 변경하지 않았다.
+고정된 upstream 원본의 각 파일은 Git blob SHA-1·크기와 대조했고, 저장된 바이트의 SHA-256도 매니페스트에 기록했다. v1.3.0에서 추가한 17개 blob도 세 값이 확인되어 있다. 원본 내용·줄바꿈·파일명은 바꾸지 않았다.
 
-이 검사는 출처·선별 경로·바이트 일치의 확인이다. 원본 조언의 모든 주장이 모든 과제에 맞는지, 원본 예제의 실행 성공, 최적해 보장, 외부 제출 성공을 검증했다는 뜻은 아니다. 실제 과제의 검사 기록과 완료 판단은 TaskFlow의 검증 흐름에서 별도로 남긴다.
+이 검사는 출처·선별 경로·바이트 일치의 확인이다. 원본 조언의 모든 주장이 모든 과제에 맞는지, 원본 예제의 실행 성공, 최적해 보장, 외부 제출 성공을 검증했다는 뜻은 아니다. 새 원본은 참고용으로 보존했으며 플러그인 활성화, 패키지·브라우저 설치, upstream helper 실행은 하지 않았다. 실제 과제의 검사 기록과 완료 판단은 TaskFlow의 검증 흐름에서 별도로 남긴다.
 
 
 ## v1.1 Understand Anything

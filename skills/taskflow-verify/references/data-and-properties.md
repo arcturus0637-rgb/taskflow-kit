@@ -1,0 +1,18 @@
+# Check data contracts and look for counterexamples
+
+Read only when the deliverable transforms data, computes values, predicts outcomes or produces a constrained decision. Keep checks tied to actual requirements and the approved batch; do not add a testing framework or refactor unrelated code just to exercise this guide.
+
+## Choose an independent check
+
+- Trace output IDs, required rows, units, missing-value policy and join cardinality back to the input contract. Test empty input, duplicates, boundary values and invalid data only under the contract's defined behavior. Preserve leading zeros and source bytes when required. A CSV roundtrip is exact only for fields whose representation is specified to be lossless.
+- Recompute constraints/objective from original inputs and final outputs in a separate checker. Do not call the same solver/helper twice and label the agreement independent. For tractable discrete cases, use tiny enumeration or hand-derived expected values; for prediction, use a legitimate held-out evaluation and a simple reference under the same split. Do not use reserved final evaluation to choose the next experiment.
+- Select properties whose premises actually hold. For instance: every required ID appears exactly once; allocation never exceeds capacity; a normalization is idempotent; renaming meaningless IDs preserves validity/objective. Input-order invariance may fail when order encodes priority, and ties may legitimately change the exact arrangement. Relaxing constraints cannot worsen the mathematical optimum, but a time-limited heuristic need not return a monotone score. State premises before using such checks.
+- For continuous values, choose tolerances from units/precision and inspect quantization, zero, NaN and accumulated error. Do not use an epsilon to excuse a true hard-constraint violation. Distinguish numeric tolerance from solver optimality gap.
+
+Use the pinned Trail of Bits `property-based-testing` reference when choosing meaningful properties/generators or interpreting a generated counterexample. Resolve source ID `trailofbits-property-testing` through the runtime kit's `config/sources.lock.json` (installed at `.taskflow-kit/config/sources.lock.json`). Its entry is `upstream/trailofbits-skills/plugins/property-based-testing/skills/property-based-testing/SKILL.md`, with its original references beside it. Read only the relevant reference; it is passive source, not an active plugin, installation permission or an overriding model/effort instruction. Preserve its CC-BY-SA-4.0 notices separately from TaskFlow's license.
+
+## Execute proportionately
+
+If an allowed suitable property-testing library is already runnable, generate valid cases directly, bound runtime/size/seed, inspect discarded cases and reduce failures to a small reproducible input. A vacuous property, excessive filtering or an expected value copied from implementation can pass without checking the requirement. Use examples when no useful property exists. If the library is missing or execution is prohibited, use permitted standard-library example/bounded generated checks or report the block; never auto-install packages or claim Hypothesis/shrinking ran.
+
+Record actual commands, input/seed, premises, independent expected result, observed result and source/data/config version using existing evidence tools. A finite generated suite is evidence for its exercised cases, not a proof over all inputs. Diagnose a failed case before changing implementation or weakening the assertion; it may expose either a real defect or a false property. Recheck affected integration paths after fixes. Stop at the approved budget and report uncovered cases honestly.

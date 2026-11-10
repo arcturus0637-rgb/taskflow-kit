@@ -49,6 +49,9 @@ class InstallTests(unittest.TestCase):
             'taskflow-workflow/references/decision-policy.md',
             'taskflow-parallel/references/model-routing.md',
             'taskflow-parallel/references/model-policy.json',
+            'taskflow-workflow/references/cofa-startup.md',
+            'taskflow-verify/references/data-and-properties.md',
+            'taskflow-verify/references/webapp-checks.md',
         )
         for name in relative_files:
             with self.subTest(path=name):

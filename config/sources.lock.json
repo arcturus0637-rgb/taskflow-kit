@@ -4218,6 +4218,228 @@
           "acquired_from": "pinned GitHub codeload archive, checked against Git tree"
         }
       ]
+    },
+    {
+      "id": "trailofbits-property-testing",
+      "repository": "https://github.com/trailofbits/skills",
+      "commit": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+      "commit_url": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+      "selected_paths": [
+        "plugins/property-based-testing/skills/property-based-testing",
+        "LICENSE"
+      ],
+      "snapshot": "upstream/trailofbits-skills",
+      "mode": "passive-reference",
+      "entry_paths": [
+        "upstream/trailofbits-skills/plugins/property-based-testing/skills/property-based-testing/SKILL.md"
+      ],
+      "license": "CC-BY-SA-4.0",
+      "license_paths": [
+        "upstream/trailofbits-skills/LICENSE"
+      ],
+      "support_status": "Selected skill directory complete; license/notices preserved. Read conditionally; no framework or dependency installation, activation or upstream execution.",
+      "files": [
+        {
+          "source_path": "plugins/property-based-testing/skills/property-based-testing/README.md",
+          "local_path": "upstream/trailofbits-skills/plugins/property-based-testing/skills/property-based-testing/README.md",
+          "source_url": "https://github.com/trailofbits/skills/blob/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/property-based-testing/skills/property-based-testing/README.md",
+          "size_bytes": 15332,
+          "git_blob_sha1": "2c49678009a0e3e796a31dda185935497dec450a",
+          "sha256": "ffbe30eec09cc64fb1eae836b07ca1d82939bda3f1e6f0dceadcdd78793a3112",
+          "license": "CC-BY-SA-4.0",
+          "acquired_from": "pinned GitHub connector base64; canonical Git blob and size checked"
+        },
+        {
+          "source_path": "plugins/property-based-testing/skills/property-based-testing/SKILL.md",
+          "local_path": "upstream/trailofbits-skills/plugins/property-based-testing/skills/property-based-testing/SKILL.md",
+          "source_url": "https://github.com/trailofbits/skills/blob/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/property-based-testing/skills/property-based-testing/SKILL.md",
+          "size_bytes": 4306,
+          "git_blob_sha1": "1cc39d8d8cba5955bf9c8d7c9a2aef348722a55e",
+          "sha256": "9448cacb65c6237a7c22dc59602667177ecae405524079ae9ff92240590b995a",
+          "license": "CC-BY-SA-4.0",
+          "acquired_from": "pinned GitHub connector base64; canonical Git blob and size checked"
+        },
+        {
+          "source_path": "plugins/property-based-testing/skills/property-based-testing/agents/openai.yaml",
+          "local_path": "upstream/trailofbits-skills/plugins/property-based-testing/skills/property-based-testing/agents/openai.yaml",
+          "source_url": "https://github.com/trailofbits/skills/blob/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/property-based-testing/skills/property-based-testing/agents/openai.yaml",
+          "size_bytes": 254,
+          "git_blob_sha1": "fdde0c37ebd8f31ea34fd945a0c3b784d51defe7",
+          "sha256": "51d635deefa254d8cdf6dc56450851b6ec9545cd37f88a4eb4035cf3f2262fff",
+          "license": "CC-BY-SA-4.0",
+          "acquired_from": "pinned GitHub connector base64; canonical Git blob and size checked"
+        },
+        {
+          "source_path": "plugins/property-based-testing/skills/property-based-testing/assets/trail-of-bits-mark.svg",
+          "local_path": "upstream/trailofbits-skills/plugins/property-based-testing/skills/property-based-testing/assets/trail-of-bits-mark.svg",
+          "source_url": "https://github.com/trailofbits/skills/blob/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/property-based-testing/skills/property-based-testing/assets/trail-of-bits-mark.svg",
+          "size_bytes": 3084,
+          "git_blob_sha1": "7cd6e7ca7348897984f2498f301a888bb2f3ca71",
+          "sha256": "4bf74c789b38dcf6ad762c136b6832363d27ae19fbaa9a18ec18d66ecce6ca05",
+          "license": "CC-BY-SA-4.0",
+          "acquired_from": "pinned GitHub connector base64; canonical Git blob and size checked"
+        },
+        {
+          "source_path": "plugins/property-based-testing/skills/property-based-testing/references/generating.md",
+          "local_path": "upstream/trailofbits-skills/plugins/property-based-testing/skills/property-based-testing/references/generating.md",
+          "source_url": "https://github.com/trailofbits/skills/blob/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/property-based-testing/skills/property-based-testing/references/generating.md",
+          "size_bytes": 2634,
+          "git_blob_sha1": "0133ccd27580a6f68d662807832de67cb1d91514",
+          "sha256": "c0e72dfc89babe3c32de718b81b94044362c85e776d7475e950dfeaab78bb58e",
+          "license": "CC-BY-SA-4.0",
+          "acquired_from": "pinned GitHub connector base64; canonical Git blob and size checked"
+        },
+        {
+          "source_path": "plugins/property-based-testing/skills/property-based-testing/references/interpreting-failures.md",
+          "local_path": "upstream/trailofbits-skills/plugins/property-based-testing/skills/property-based-testing/references/interpreting-failures.md",
+          "source_url": "https://github.com/trailofbits/skills/blob/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/property-based-testing/skills/property-based-testing/references/interpreting-failures.md",
+          "size_bytes": 3426,
+          "git_blob_sha1": "10aeac48d239da352206b8c49f72ee776e5ca5be",
+          "sha256": "dbae7db8773712ba03268a3d56ea5aa6720af0650a5189580bfd88aa2edc3f9a",
+          "license": "CC-BY-SA-4.0",
+          "acquired_from": "pinned GitHub connector base64; canonical Git blob and size checked"
+        },
+        {
+          "source_path": "plugins/property-based-testing/skills/property-based-testing/references/libraries.md",
+          "local_path": "upstream/trailofbits-skills/plugins/property-based-testing/skills/property-based-testing/references/libraries.md",
+          "source_url": "https://github.com/trailofbits/skills/blob/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/property-based-testing/skills/property-based-testing/references/libraries.md",
+          "size_bytes": 2952,
+          "git_blob_sha1": "6b9964a46c014f5ecee78cd356fb0bdc4cbcd830",
+          "sha256": "f7218acf8e668130ef3048983472579d04e12030c5401926f666363e5f69c686",
+          "license": "CC-BY-SA-4.0",
+          "acquired_from": "pinned GitHub connector base64; canonical Git blob and size checked"
+        },
+        {
+          "source_path": "plugins/property-based-testing/skills/property-based-testing/references/refactoring.md",
+          "local_path": "upstream/trailofbits-skills/plugins/property-based-testing/skills/property-based-testing/references/refactoring.md",
+          "source_url": "https://github.com/trailofbits/skills/blob/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/property-based-testing/skills/property-based-testing/references/refactoring.md",
+          "size_bytes": 4854,
+          "git_blob_sha1": "d4be7fb1fd4f00e53fde109254dd6dc937248011",
+          "sha256": "6eb5c206f575704791f089608bb06e41d6eed91b9d3c7fb27912f969aed07a18",
+          "license": "CC-BY-SA-4.0",
+          "acquired_from": "pinned GitHub connector base64; canonical Git blob and size checked"
+        },
+        {
+          "source_path": "plugins/property-based-testing/skills/property-based-testing/references/reviewing.md",
+          "local_path": "upstream/trailofbits-skills/plugins/property-based-testing/skills/property-based-testing/references/reviewing.md",
+          "source_url": "https://github.com/trailofbits/skills/blob/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/property-based-testing/skills/property-based-testing/references/reviewing.md",
+          "size_bytes": 2859,
+          "git_blob_sha1": "a2ca783a7dabaece9e383f0ace972bb4fe2f7881",
+          "sha256": "110b08118a1e7b1a2566def6e9d2a0bf43fc2deefce857d2ce3b4382b07bc774",
+          "license": "CC-BY-SA-4.0",
+          "acquired_from": "pinned GitHub connector base64; canonical Git blob and size checked"
+        },
+        {
+          "source_path": "LICENSE",
+          "local_path": "upstream/trailofbits-skills/LICENSE",
+          "source_url": "https://github.com/trailofbits/skills/blob/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/LICENSE",
+          "size_bytes": 20131,
+          "git_blob_sha1": "3b7b82d0da2db857eda1a798dbd908ea136f07b5",
+          "sha256": "7abe19ec9bb73b36141b999b861d24ad855e808bafe0f81e84cce28556f6c297",
+          "license": "CC-BY-SA-4.0",
+          "acquired_from": "pinned GitHub connector base64; canonical Git blob and size checked"
+        }
+      ]
+    },
+    {
+      "id": "anthropic-webapp-testing",
+      "repository": "https://github.com/anthropics/skills",
+      "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+      "commit_url": "https://github.com/anthropics/skills/tree/2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+      "selected_paths": [
+        "skills/webapp-testing",
+        "THIRD_PARTY_NOTICES.md"
+      ],
+      "snapshot": "upstream/anthropic-skills",
+      "mode": "passive-reference",
+      "entry_paths": [
+        "upstream/anthropic-skills/skills/webapp-testing/SKILL.md"
+      ],
+      "license": "Apache-2.0; third-party notices retained",
+      "license_paths": [
+        "upstream/anthropic-skills/skills/webapp-testing/LICENSE.txt",
+        "upstream/anthropic-skills/THIRD_PARTY_NOTICES.md"
+      ],
+      "support_status": "Selected skill directory complete; license/notices preserved. Read conditionally; no framework or dependency installation, activation or upstream execution.",
+      "files": [
+        {
+          "source_path": "skills/webapp-testing/LICENSE.txt",
+          "local_path": "upstream/anthropic-skills/skills/webapp-testing/LICENSE.txt",
+          "source_url": "https://github.com/anthropics/skills/blob/2c5958ecac7cee2b583967a2c4981d0f4a75c579/skills/webapp-testing/LICENSE.txt",
+          "size_bytes": 11345,
+          "git_blob_sha1": "4f881c52d1f72f4cfb720e339e2d35c3058d01a9",
+          "sha256": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+          "license": "Apache-2.0",
+          "acquired_from": "pinned GitHub connector base64; canonical Git blob and size checked"
+        },
+        {
+          "source_path": "skills/webapp-testing/SKILL.md",
+          "local_path": "upstream/anthropic-skills/skills/webapp-testing/SKILL.md",
+          "source_url": "https://github.com/anthropics/skills/blob/2c5958ecac7cee2b583967a2c4981d0f4a75c579/skills/webapp-testing/SKILL.md",
+          "size_bytes": 3913,
+          "git_blob_sha1": "4726215301db64a0cc4d41fc3219c61f37a30f4a",
+          "sha256": "51b7349e77ec63b7744a6f63647e7566a0b4d2e301121cc10e8c2113af6556a2",
+          "license": "Apache-2.0",
+          "acquired_from": "pinned GitHub connector base64; canonical Git blob and size checked"
+        },
+        {
+          "source_path": "skills/webapp-testing/examples/console_logging.py",
+          "local_path": "upstream/anthropic-skills/skills/webapp-testing/examples/console_logging.py",
+          "source_url": "https://github.com/anthropics/skills/blob/2c5958ecac7cee2b583967a2c4981d0f4a75c579/skills/webapp-testing/examples/console_logging.py",
+          "size_bytes": 1027,
+          "git_blob_sha1": "9329b5e232ed53d944bfe95e750070117d31b9ab",
+          "sha256": "ea46877289acb82da7e7ce59d0bc37c8977cd57e2a006d0c88d7a1c625bf95da",
+          "license": "Apache-2.0",
+          "acquired_from": "pinned GitHub connector base64; canonical Git blob and size checked"
+        },
+        {
+          "source_path": "skills/webapp-testing/examples/element_discovery.py",
+          "local_path": "upstream/anthropic-skills/skills/webapp-testing/examples/element_discovery.py",
+          "source_url": "https://github.com/anthropics/skills/blob/2c5958ecac7cee2b583967a2c4981d0f4a75c579/skills/webapp-testing/examples/element_discovery.py",
+          "size_bytes": 1463,
+          "git_blob_sha1": "917ba72f52421a1b324f93ae8e38af72010a87b9",
+          "sha256": "d63c89604a22f8845d724e95dda45db49b1bf57c25ce0a83afbb7b8da3d402f0",
+          "license": "Apache-2.0",
+          "acquired_from": "pinned GitHub connector base64; canonical Git blob and size checked"
+        },
+        {
+          "source_path": "skills/webapp-testing/examples/static_html_automation.py",
+          "local_path": "upstream/anthropic-skills/skills/webapp-testing/examples/static_html_automation.py",
+          "source_url": "https://github.com/anthropics/skills/blob/2c5958ecac7cee2b583967a2c4981d0f4a75c579/skills/webapp-testing/examples/static_html_automation.py",
+          "size_bytes": 953,
+          "git_blob_sha1": "90bbedcc08cdb345c74fb938ebad02c0baf56603",
+          "sha256": "9d533aafb875ee3ab8b8ebf8f5b9003ac8d999da3d09b285cce252e623140064",
+          "license": "Apache-2.0",
+          "acquired_from": "pinned GitHub connector base64; canonical Git blob and size checked"
+        },
+        {
+          "source_path": "skills/webapp-testing/scripts/with_server.py",
+          "local_path": "upstream/anthropic-skills/skills/webapp-testing/scripts/with_server.py",
+          "source_url": "https://github.com/anthropics/skills/blob/2c5958ecac7cee2b583967a2c4981d0f4a75c579/skills/webapp-testing/scripts/with_server.py",
+          "size_bytes": 3693,
+          "git_blob_sha1": "431f2eba16b268b7f3e2ae4daae9db41c0289b6d",
+          "sha256": "b0dcf4918935b795f4eda9821579b9902119235ff4447f687a30286e7d0925fd",
+          "license": "Apache-2.0",
+          "acquired_from": "pinned GitHub connector base64; canonical Git blob and size checked"
+        },
+        {
+          "source_path": "THIRD_PARTY_NOTICES.md",
+          "local_path": "upstream/anthropic-skills/THIRD_PARTY_NOTICES.md",
+          "source_url": "https://github.com/anthropics/skills/blob/2c5958ecac7cee2b583967a2c4981d0f4a75c579/THIRD_PARTY_NOTICES.md",
+          "size_bytes": 46162,
+          "git_blob_sha1": "ffef92c48b351a3ed036556ed32dda934e8cf41a",
+          "sha256": "a8ff7a84dee9dfb42ab448de281784387ceafdf63881b7c070ee2de7f6ed865c",
+          "license": "Apache-2.0; third-party notices retained",
+          "acquired_from": "pinned GitHub connector base64; canonical Git blob and size checked"
+        }
+      ]
     }
-  ]
+  ],
+  "v1_3_manual_addition": {
+    "verified_on": "2026-11-10",
+    "file_count": 17,
+    "method": "Pinned GitHub connector base64; verify canonical Git blob SHA-1, size and SHA-256 before adding source bytes",
+    "upstream_executed": false,
+    "automatic_updates": false
+  }
 }

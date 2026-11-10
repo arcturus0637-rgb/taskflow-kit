@@ -24,6 +24,8 @@ Within approved analysis scope, diagnose errors by case/subgroup, constraint vio
 
 Compare complete pipelines against the current accepted result, checking mandatory conditions first, then the task's stated priorities. Separate isolated module gains from measured end-to-end benefit; evaluate combinations again. If priorities conflict, ask the user and preserve the accepted result while waiting. Report unsupported/ambiguous evidence as inconclusive, not an improvement.
 
+For a data/calculation counterexample use `../taskflow-verify/references/data-and-properties.md`; for a required local UI use `../taskflow-verify/references/webapp-checks.md` only after runtime/permission checks. Dependencies and upstream source presence are not executed verification. Do not add packages or apply unrelated properties merely to expand test counts.
+
 Present the exact candidate, reproducible evidence, costs/regressions, critic findings, recommendation, rollback target and proposed post-adoption diagnosis scope/budget for user discussion. **Wait for explicit approval of adoption even when the experiment batch was approved.** Do not replace the accepted pointer, wire the candidate into the default API/UI, submit it or call it selected while pending. Recheck candidate/evidence freshness before the approved integration, then execute relevant whole-result checks. Revert to the prior accepted result if integration fails. More edits require new evidence and renewed approval; a newly combined candidate is not covered by separate approvals for its components.
 
 ## After every successful adoption

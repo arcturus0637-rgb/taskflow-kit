@@ -47,7 +47,10 @@ def install(project, source=ROOT, dry_run=False):
                            'taskflow-model/references/method-selection.md',
                            'taskflow-improve/references/experiment-record.md',
                            'taskflow-parallel/references/model-routing.md',
-                           'taskflow-parallel/references/model-policy.json')
+                           'taskflow-parallel/references/model-policy.json',
+                           'taskflow-workflow/references/cofa-startup.md',
+                           'taskflow-verify/references/data-and-properties.md',
+                           'taskflow-verify/references/webapp-checks.md')
     if not all((source / 'skills' / name).is_file() for name in required_references):
         raise ValueError('The source pack is missing required skill references')
     manifest = source / 'bundle-lock.json'

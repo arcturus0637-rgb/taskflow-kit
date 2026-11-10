@@ -7,7 +7,7 @@ import shutil
 import zipfile
 
 IGNORED = {'__pycache__', '.git', '.taskflow', '.pytest_cache', 'node_modules', 'dist', '.pnpm-store', '.ua', '.understand-anything'}
-VERSION = '1.2.0'
+VERSION = '1.3.0'
 DIRS = {'taskflow', 'skills', 'upstream', 'config', 'docs', 'tests', 'scripts'}
 FILES = {'kit.py', 'README.ko.md', 'LICENSE', '.gitattributes', 'bundle-lock.json'}
 
